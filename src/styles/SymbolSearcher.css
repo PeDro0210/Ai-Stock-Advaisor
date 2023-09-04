@@ -1,0 +1,66 @@
+.SymbolSeacher-textbox {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    width: 10%;
+    height: 3%;
+    font-size: 20px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 0;
+    border: 2px solid #1b8da1;
+    background-color: transparent;
+    color: #1b8da1;
+    float: left;
+}
+
+.symbolSearcher-button {
+    position: fixed;
+    top: 50px;
+    left: 200px;
+    width: 5%;
+    height: 4.5%;
+    font-size: 20px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 0;
+    border: 2px solid #1b8da1;
+    border-left: none;
+    background-color: transparent;
+    color: #1b8da1;
+    float: left;
+}
+
+.symbolSearcher-button:hover {
+    background-color: #1b8da1;
+    color: white;
+}
+
+.ShowSymbolSearcher {
+    position: fixed;
+    top: 98px;
+    left: 5px;
+    width: 10.7%;
+    display: flex; 
+    background-color: #1b8da1;
+    flex-direction: column;
+}
+
+.ShowSymbolSearcher button {
+    border-radius: 0;
+    border: 2px solid #1b8da1;
+    color: #1b8da1;
+    background-color: #373241;
+}
+
+.ShowSymbolSearcher button:hover {
+    background-color: transparent;
+    color: white;
+}
+
+
+
+
+
+
+/* I have to improve all of this css, but I thing that I know a lil more about it */

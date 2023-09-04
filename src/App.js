@@ -1,22 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import SymbolSearcher from './components/SymbolSearcher.js'
+import './styles/MenuButton.css';
+import { useState } from 'react';
 
 function App() {
+  // is like a conditional render
+  const [showSymbolSearcher, setShowSymbolSearcher] = useState(false);
+  
+  // Change the state of the menu button
+  const toggleSymbolSearcher = () => {
+    setShowSymbolSearcher(!showSymbolSearcher);
+  };
+
   return (
-    <div className="App">
+    <div className="Stock Adivsor">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <button className='MenuButton' onClick={toggleSymbolSearcher}>Menu</button>
+      {/* Add some cool css transtition and good to go */}
+      {showSymbolSearcher && <SymbolSearcher />}
       </header>
     </div>
   );
