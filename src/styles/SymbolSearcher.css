@@ -44,6 +44,12 @@
     display: flex; 
     background-color: #1b8da1;
     flex-direction: column;
+    overflow: auto; /* this is for the scroll bar */
+    max-height: 30%;
+}
+
+.ShowSymbolSearcher::-webkit-scrollbar {
+    display: none;
 }
 
 .ShowSymbolSearcher button {
