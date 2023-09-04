@@ -28,4 +28,4 @@ def ask(message) -> str:
     
     chat_log.append({"role":"assistant","content":Assistant_response['choices'][0]['message']['content']})
 
-    return Assistant_response['choices'][0]['message']['content']
+    return Assistant_response

@@ -38,14 +38,16 @@
 
 .ShowSymbolSearcher {
     position: fixed;
-    top: 98px;
+    top: 77px;
     left: 5px;
-    width: 10.7%;
+    width: 10.9%;
     display: flex; 
     background-color: #1b8da1;
     flex-direction: column;
     overflow: auto; /* this is for the scroll bar */
     max-height: 30%;
+    border-top: 2px solid  #1b8da1;
+    border-bottom: 2px solid  #1b8da1;
 }
 
 .ShowSymbolSearcher::-webkit-scrollbar {
@@ -55,6 +57,7 @@
 .ShowSymbolSearcher button {
     border-radius: 0;
     border: 2px solid #1b8da1;
+    border-top:2px solid #1b8da1 ;
     color: #1b8da1;
     background-color: #373241;
 }

@@ -8,11 +8,12 @@ class SymbolSearcher extends Component {
         super(props);
         this.state = {
             symbol: '',
-            data: []
+            data: [],
+            FoundSymbol:''
         };
     }
 
-    handleSearch = () => {
+    HandleSearch = () => {
         fetch(`http://127.0.0.1:5000//SymbolSearcher/<${this.state.symbol}>`)
             .then(response => response.json())
             .then(data => {
@@ -24,15 +25,20 @@ class SymbolSearcher extends Component {
             });
     }
 
+    SelectSymbol = (e) => {
+        console.log("Symbol Catch: "+e);
+        this.setState({FoundSymbol: e });
+    }
+
     render() {
         return (
             <div>
                 <input id='symbol-input' type='text' placeholder='Write Symbol' className='SymbolSeacher-textbox' value={this.state.symbol} onChange={(e) => this.setState({ symbol: e.target.value })} />
-                <button id='symbol-searcher-button' className='symbolSearcher-button' onClick={this.handleSearch}>Search</button>
+                <button id='symbol-searcher-button' className='symbolSearcher-button' onClick={this.HandleSearch}>Search</button>
                 <div className='ShowSymbolSearcher'>
                     {Array.isArray(this.state.data) && this.state.data.map((item, index) => (
                         console.log(item),
-                        <button key={index} data-name={item['2. name']}>
+                        <button key={index} data-name={item['2. name']} onClick={() => this.SelectSymbol(item['1. symbol'])}>
                             {item['1. symbol']}, {item['2. name']}
                         </button>
                     ))}
