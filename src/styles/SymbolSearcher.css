@@ -1,7 +1,7 @@
 .SymbolSeacher-textbox {
     position: fixed;
-    top: 50px;
-    left: 0px;
+    top: 5.2%;
+    left: 0%;
     width: 10%;
     height: 3%;
     font-size: 20px;
@@ -16,8 +16,8 @@
 
 .symbolSearcher-button {
     position: fixed;
-    top: 50px;
-    left: 200px;
+    top: 5.2%;
+    left: 10.5%;
     width: 5%;
     height: 4.5%;
     font-size: 20px;
