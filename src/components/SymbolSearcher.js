@@ -1,6 +1,6 @@
 import '../styles/SymbolSearcher.css';
 import {Component} from 'react';
-
+import StockGraph from './Graph.js';
 
 class SymbolSearcher extends Component {
     // Good, now this is a class and now I understand how the use state works
@@ -41,9 +41,13 @@ class SymbolSearcher extends Component {
                         <button key={index} data-name={item['2. name']} onClick={() => this.SelectSymbol(item['1. symbol'])}>
                             {item['1. symbol']}, {item['2. name']}
                         </button>
-                    ))}
-
+                    ))} 
                 </div>
+                {this.state.FoundSymbol ? (
+                    <StockGraph FoundSymbol={this.state.FoundSymbol}/>
+                    ) : (
+                    <h1>Search for a symbol</h1>
+                    )}
             </div>
         );
     }

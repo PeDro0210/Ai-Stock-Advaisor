@@ -12,7 +12,11 @@ def SymbolSearcher(StockName):
 
 @app.route("/StockData/<StockName>")
 def StockData(StockName):
-    return Stock(StockName).StockData()
+    StockName = StockName.replace("<", "").replace(">", "")
+    print(StockName)
+    data = Stock(StockName).StockData(StockName)
+    print(data)
+    return data
 
 @app.route("/DelStock/<StockName>")
 def DelStock(StockName):

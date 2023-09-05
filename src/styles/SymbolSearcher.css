@@ -38,14 +38,14 @@
 
 .ShowSymbolSearcher {
     position: fixed;
-    top: 77px;
+    top: 10%;
     left: 5px;
-    width: 10.9%;
+    width: 10.75%;
     display: flex; 
     background-color: #1b8da1;
     flex-direction: column;
     overflow: auto; /* this is for the scroll bar */
-    max-height: 30%;
+    max-height: 30vh;
     border-top: 2px solid  #1b8da1;
     border-bottom: 2px solid  #1b8da1;
 }
