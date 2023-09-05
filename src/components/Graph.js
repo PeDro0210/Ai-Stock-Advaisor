@@ -37,7 +37,7 @@ class StockGraph extends Component{
             <div className='ShowSymbolSearcher'>
                 {Array.isArray(this.state.data) && this.state.data.map((item, index) => (
                     console.log(item)
-                    // Look how the json returns the data and based on that (and Ernesto's explanation) see how to graph it.
+                    // TODO: Look how the json returns the data and based on that (and Ernesto's explanation) see how to graph it.
                 ))} 
             </div>
         )
