@@ -9,7 +9,8 @@ class SymbolSearcher extends Component {
         this.state = {
             symbol: '',
             data: [],
-            FoundSymbol:''
+            FoundSymbol:'',
+            showGraph: false
         };
     }
 
@@ -30,27 +31,56 @@ class SymbolSearcher extends Component {
         this.setState({FoundSymbol: e });
     }
 
+    AddGraph = () => {
+        this.setState({showGraph: true});
+    }
+
+
     render() {
         return (
             <div>
-                <input id='symbol-input' type='text' placeholder='Write Symbol' className='SymbolSeacher-textbox' value={this.state.symbol} onChange={(e) => this.setState({ symbol: e.target.value })} />
-                <button id='symbol-searcher-button' className='symbolSearcher-button' onClick={this.HandleSearch}>Search</button>
-                <div className='ShowSymbolSearcher'>
-                    {Array.isArray(this.state.data) && this.state.data.map((item, index) => (
-                        console.log(item),
-                        <button key={index} data-name={item['2. name']} onClick={() => this.SelectSymbol(item['1. symbol'])}>
-                            {item['1. symbol']}, {item['2. name']}
-                        </button>
-                    ))} 
+                <input
+                    id="symbol-input"
+                    type="text"
+                    placeholder="Write Symbol"
+                    className="SymbolSeacher-textbox"
+                    value={this.state.symbol}
+                    onChange={(e) => this.setState({ symbol: e.target.value })}
+                />
+                <button
+                    id="symbol-searcher-button"
+                    className="symbolSearcher-button"
+                    onClick={this.HandleSearch}
+                >
+                    Search
+                </button>
+                <div className="ShowSymbolSearcher">
+                    {Array.isArray(this.state.data) &&
+                        this.state.data.map((item, index) => {
+                            console.log(item);
+                            return (
+                                <button
+                                    key={index}
+                                    data-name={item["2. name"]}
+                                    onClick={() => {
+                                        this.AddGraph();
+                                        this.SelectSymbol(item["1. symbol"]);
+                                    }}
+                                >
+                                    {item["1. symbol"]}, {item["2. name"]}
+                                </button>
+                            );
+                        })}
                 </div>
-                {this.state.FoundSymbol ? (
-                    <StockGraph FoundSymbol={this.state.FoundSymbol}/>
-                    ) : (
-                    <h1>Search for a symbol</h1>
-                    )}
+                {this.state.showGraph && (
+                    <StockGraph
+                        key={this.state.FoundSymbol}
+                        FoundSymbol={this.state.FoundSymbol}
+                    />
+                )}
             </div>
         );
     }
 }
 
-export default SymbolSearcher;
+export default SymbolSearcher;  

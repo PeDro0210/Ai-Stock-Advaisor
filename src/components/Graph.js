@@ -1,5 +1,6 @@
 import '../styles/Graph.css';
 import {Component} from 'react';
+import {Line} from 'react-chartjs-2';
 
 class StockGraph extends Component{
     constructor(props){
@@ -28,17 +29,29 @@ class StockGraph extends Component{
         const {FoundSymbol} = this.props;
         this.setState({Symbol: FoundSymbol}, () => {
             this.HandleSearch();
-            console.log(this.state.data);
+            console.log("Found Symnol "+this.state.Symbol)
         });
     }
 
     render(){
         return(
-            <div className='ShowSymbolSearcher'>
+            <div>
                 {Array.isArray(this.state.data) && this.state.data.map((item, index) => (
                     console.log(item)
-                    // TODO: Look how the json returns the data and based on that (and Ernesto's explanation) see how to graph it.
+                    // data["Meta Data"]["Time Series (5min)"][take all the keys and values]
+                    
+                    // TODO: Do the graph with the data with Chart.js
+
+                    
+
+
                 ))} 
+            <div>
+                <h1>Stock Graph</h1>
+                <p>Symbol: {this.state.Symbol}</p>
+                
+            </div>
+
             </div>
         )
     }
