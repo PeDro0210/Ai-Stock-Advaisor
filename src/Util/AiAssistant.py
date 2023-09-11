@@ -6,17 +6,17 @@ import load_dotenv as env
 
 # Haha, otra cosa con API o lo puedo trasvasar a JS.
 env.load_dotenv()
-information_loader = json.load(open('Data/initial_information.json', 'r'))
+information_loader = json.load(open('src/Util/Data/initial_information.json','r'))
 ai.api_key = os.getenv("AI_API")
 initial_info = {"role":"system","content":f"{information_loader['AiPrompt']}"}
 chat_log = [initial_info]
 
 def CheckStockData(StockData):
-    chat_log.append({"role":"system","content":f"Stock Name:{StockData['Meta Data']['2. Symbol']}. StockData:{StockData['Time Series (5min)']}"})
-    return StockData['Time Series (5min)']
+    print(StockData)
+    return {"message":f"Stock Name:"}
 
 
-def ask(message) -> str:
+def ask(message):
     chat_log.append({"role":"user","content":f"{message}"})
     
     Assistant_response = ai.ChatCompletion.create(
@@ -28,4 +28,4 @@ def ask(message) -> str:
     
     chat_log.append({"role":"assistant","content":Assistant_response['choices'][0]['message']['content']})
 
-    return Assistant_response
+    return {"message":Assistant_response['choices'][0]['message']['content']}

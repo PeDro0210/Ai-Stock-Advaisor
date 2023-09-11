@@ -1,6 +1,7 @@
 import '../styles/SymbolSearcher.css';
 import {Component} from 'react';
 import StockGraph from './Graph.js';
+import Chat from './Chat.js';
 
 class SymbolSearcher extends Component {
     // Good, now this is a class and now I understand how the use state works
@@ -76,6 +77,11 @@ class SymbolSearcher extends Component {
                     <StockGraph
                         key={this.state.FoundSymbol}
                         FoundSymbol={this.state.FoundSymbol}
+                    />,
+                    <Chat
+                        key={this.state.FoundSymbol}
+                        FoundSymbol={this.state.FoundSymbol}
+                        data={this.state.data}
                     />
                 )}
             </div>

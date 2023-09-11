@@ -60,8 +60,6 @@ class Stock:
     def DelStock(self):
         del self
 
-
-        
   
 
 
