@@ -1,6 +1,5 @@
 import '../styles/Graph.css';
 import {Component} from 'react';
-import {Line} from 'react-chartjs-2';
 
 class StockGraph extends Component{
     constructor(props){

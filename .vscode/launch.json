@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run NPM Start",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "start"
+            ]
+        },
+        {
+            "name": "Run StockAPI",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/Util/StockAPI.py"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Run All",
+            "configurations": [
+                "Run NPM Start",
+                "Run StockAPI"
+            ]
+        }
+    ]
+}
+
