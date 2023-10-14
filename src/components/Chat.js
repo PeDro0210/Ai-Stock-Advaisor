@@ -1,13 +1,14 @@
 import { Component } from 'react';
-
+import "../styles/chat.css"
 class Chat extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             Symbol: '',
             Prompt:'',
             Data: [],
-            ChatgptPrompt: ''
+            ChatgptPrompt: []
         }
     }
 
@@ -15,9 +16,10 @@ class Chat extends Component {
         fetch(`http://127.0.0.1:5000//AskAI/<${this.state.Prompt}>`)
             .then(response => response.json())
             .then(data => {
-                // Make a cool looking chat box
-                console.log(data);
-                this.setState({ ChatgptPrompt: data['message'] });
+                this.setState((prevState) => ({
+                    ChatgptPrompt: [...prevState.ChatgptPrompt,  data.message],
+                }));
+
                 return data;
             })
             .catch(error => {
@@ -25,12 +27,9 @@ class Chat extends Component {
             });
     }
 
-
     ReadStockData = () => {
         fetch(`http://127.0.0.1:5000//CheckStockData/<${this.state.Symbol}>`)
     }
-
-
 
     componentDidMount() {
         const {FoundSymbol} = this.props;
@@ -44,28 +43,57 @@ class Chat extends Component {
         });
     }
 
-        render() {
-            return (
+    // TODO: Make it scroll automatically when a new prompt is added
+
+    render() {
+        return (
+            <div>
+                <input onChange={(e) => this.setState({ Prompt: e.target.value })} 
+                class="Chat-Textbox" id = "Chat-boxText" 
+                onKeyDown={(e) => {{if (e.key === 'Enter') {this.OpenAiPrompt(); document.getElementById("Chat-boxText").value = "";}}}}
+                />
+
+                <button
+                    id="OpenAI-button"
+                    onClick={() => {
+                        this.OpenAiPrompt();
+                        document.getElementById("Chat-boxText").value = "";
+                    }}
+                    class="Chat-buttonAskAdvisor"
+                >
+                    Ask
+                </button>
+
+                <button
+                    id="LookStocks-button"
+                    onClick={this.ReadStockData}
+                    class = "Chat-LookStocks"
+                >
+                Look at Stocks
+                </button>
+
+
                 <div>
-                    <input onChange={(e) => this.setState({ Prompt: e.target.value })} />
-
-                    <button
-                        id="OpenAI-button"
-                        onClick={this.OpenAiPrompt}
-                    >
-                        Ask Advisor
-                    </button>
-
-                    <button
-                        id="LookStocks-button"
-                        onClick={this.ReadStockData}
-                    >
-                    Look at Stocks
-                    </button>
-                    
+                    {
+                    <div className='Chat-Box' style={{ overflowY: 'scroll'}} ref ={this.chatBoxRef}>
+                        {this.state.ChatgptPrompt.map((item, index) => {
+                            console.log(item);
+                            return (
+                                <div key={index}>
+                                    <text class="Chat-prompt">{item}</text>
+                                    <br />
+                                    <br />
+                                </div>
+                            );
+                        })}
+                    </div>
+                    }
                 </div>
-            );
-        }
-    } 
+                
+            </div>
+        );
+    }
+
+} 
 
 export default Chat;

@@ -45,14 +45,14 @@ class SymbolSearcher extends Component {
                     type="text"
                     placeholder="Write Symbol"
                     className="SymbolSeacher-textbox"
-                    value={this.state.symbol}
                     onChange={(e) => this.setState({ symbol: e.target.value })}
+                    onKeyDown={(e) => {{if (e.key === 'Enter') {this.HandleSearch(); document.getElementById("symbol-input").value = "";}}}}
+
                 />
                 <button
                     id="symbol-searcher-button"
                     className="symbolSearcher-button"
-                    onClick={this.HandleSearch}
-                >
+                    onClick={this.HandleSearch}                >
                     Search
                 </button>
                 <div className="ShowSymbolSearcher">
