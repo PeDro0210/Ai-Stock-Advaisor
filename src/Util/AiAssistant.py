@@ -11,9 +11,21 @@ ai.api_key = os.getenv("AI_API")
 initial_info = {"role":"system","content":f"{information_loader['AiPrompt']}"}
 chat_log = [initial_info]
 
-def CheckStockData(StockData):
-    print(StockData)
-    return {"message":f"Stock Name:"}
+def CheckStockData(StockData, StockName):
+    # TODO: Separate the StockData in 4 parts
+
+    StockData = StockData['Time Series (5min)']
+    AllStocks = {"Open":[],"Close":[]}
+    # Just take the Open and close
+    for i in StockData:
+
+        StockDataOpen = StockData[i]['1. open']
+        StockDataClose = StockData[i]['4. close']
+        chat_log.append({"role":"system","content":f"Symbol: {StockName} Open: {StockDataOpen} Close: {StockDataClose}"})
+        AllStocks['Open'].append(StockDataOpen)
+        AllStocks['Close'].append(StockDataClose)
+
+    return AllStocks 
 
 
 def ask(message):
@@ -29,3 +41,18 @@ def ask(message):
     chat_log.append({"role":"assistant","content":Assistant_response['choices'][0]['message']['content']})
 
     return {"message":Assistant_response['choices'][0]['message']['content']}
+
+def CreateGraph(StockData):
+    print(StockData)
+    StockData = StockData['Time Series (5min)']
+    AllStocks = {"Dates":[],"Prices":[],"Open":[]}
+
+    for i in StockData:
+        StockDataOpen = StockData[i]['1. open']
+        StockDataClose = StockData[i]['4. close']
+        AllStocks['Dates'].append(i)
+        AllStocks['Open'].append(StockDataOpen)
+        AllStocks['Prices'].append(StockDataClose)
+    print(AllStocks)
+    return AllStocks
+

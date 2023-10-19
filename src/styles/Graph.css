@@ -1,0 +1,8 @@
+.GraphDisplay{
+    position: fixed;
+    top: -10%;
+    left: 23%;
+    /* put it a little bit up */
+    width: 75%;
+    height: 75%;
+}

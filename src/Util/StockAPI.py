@@ -13,8 +13,9 @@ def SymbolSearcher(StockName):
 
 @app.route("/StockData/<StockName>")
 def StockData(StockName):
-    StockName = StockName.replace("<", "").replace(">", "")
-    data = Stock(StockName).StockData(StockName)
+    StockNameClean= StockName.replace("<", "").replace(">", "")
+    print(f"Graph {StockNameClean}")
+    data = Ai.CreateGraph(Stock(StockNameClean).StockData(StockNameClean))
     return data
 
 @app.route("/DelStock/<StockName>")
@@ -28,9 +29,9 @@ def AskAI(Prompt):
 
 @app.route("/CheckStockData/<StockName>")
 def CheckStockData(StockName):
+    print(f"CheckStockData {StockName}")
     StockName = StockName.replace("<", "").replace(">", "")
-    return Ai.CheckStockData(Stock(StockName).StockData(StockName))
-
+    return Ai.CheckStockData(Stock(StockName).StockData(StockName), StockName)
 
 if __name__ == "__main__":
     app.run(debug=True)

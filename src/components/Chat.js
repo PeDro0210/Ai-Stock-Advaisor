@@ -19,7 +19,6 @@ class Chat extends Component {
                 this.setState((prevState) => ({
                     ChatgptPrompt: [...prevState.ChatgptPrompt,  data.message],
                 }));
-
                 return data;
             })
             .catch(error => {
@@ -32,13 +31,9 @@ class Chat extends Component {
     }
 
     componentDidMount() {
-        const {FoundSymbol} = this.props;
-        const {data} = this.props;
-        this.setState({ Symbol: FoundSymbol }, () => {
-            console.log("Found Symbol for Chat " + this.state.Symbol)
-        });
-
-        this.setState({ Data: data }, () => {
+        const { FoundSymbol, data } = this.props;
+        this.setState({ Symbol: FoundSymbol, Data: data }, () => {
+            console.log("Found Symbol for Chat " + this.state.Symbol);
             this.ReadStockData();
         });
     }
@@ -59,7 +54,7 @@ class Chat extends Component {
                         this.OpenAiPrompt();
                         document.getElementById("Chat-boxText").value = "";
                     }}
-                    class="Chat-buttonAskAdvisor"
+                    className="Chat-buttonAskAdvisor"
                 >
                     Ask
                 </button>
@@ -67,11 +62,10 @@ class Chat extends Component {
                 <button
                     id="LookStocks-button"
                     onClick={this.ReadStockData}
-                    class = "Chat-LookStocks"
+                    className = "Chat-LookStocks"
                 >
                 Look at Stocks
                 </button>
-
 
                 <div>
                     {

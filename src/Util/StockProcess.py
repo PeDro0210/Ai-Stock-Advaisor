@@ -14,10 +14,13 @@ class Stock:
     def UrlCreator(self ,StockName, function) -> str:
         match function:
             case "SYMBOL_SEARCH":
-                return "https://www.alphavantage.co/query?function="+ function +"&keywords=" + StockName + "&apikey=" + self.AlphaKey
+                return "https://www.alphavantage.co/query?function="+ function +"&keywords=" + StockName + "&apikey=" + self.AlphaKey 
             case "TIME_SERIES_INTRADAY":
-                return "https://www.alphavantage.co/query?function="+ function +"&symbol=" + StockName + "&interval=5min"  + "&apikey=" + self.AlphaKey
-            case _:
+                try:
+                    return "https://www.alphavantage.co/query?function="+ function +"&symbol=" + StockName + "&interval=5min"  + "&apikey=" + self.AlphaKey
+                except Exception as err:
+                    return {"Error": "No results found"}
+            case _: 
                 return ""
 
     # All Symbol Searchers
@@ -44,7 +47,6 @@ class Stock:
         try:
             if StockName == "No results found":
                 return {"Error": "No results found"}
-            
             response = req.get(self.UrlCreator(StockName, "TIME_SERIES_INTRADAY"))
             response.raise_for_status()
             data = response.json()
@@ -56,17 +58,7 @@ class Stock:
             return {"Error": "req.exceptions.RequestException"}
         except data.exceptions.JSONDecodeError as err:
             return {"Error": "data.exceptions.JSONDecodeError"}
+
         
     def DelStock(self):
         del self
-
-  
-
-
-
-
-
-
-    
-
-

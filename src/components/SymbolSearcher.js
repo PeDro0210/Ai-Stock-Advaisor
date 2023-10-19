@@ -36,25 +36,29 @@ class SymbolSearcher extends Component {
         this.setState({showGraph: true});
     }
 
-
     render() {
         return (
             <div>
+
                 <input
                     id="symbol-input"
                     type="text"
                     placeholder="Write Symbol"
                     className="SymbolSeacher-textbox"
                     onChange={(e) => this.setState({ symbol: e.target.value })}
-                    onKeyDown={(e) => {{if (e.key === 'Enter') {this.HandleSearch(); document.getElementById("symbol-input").value = "";}}}}
-
+                    onKeyDown={(e) => {{if (e.key === 'Enter') 
+                        {this.HandleSearch(); 
+                        document.getElementById("symbol-input").value = "";}}}}
                 />
+
                 <button
                     id="symbol-searcher-button"
                     className="symbolSearcher-button"
-                    onClick={this.HandleSearch}                >
+                    onClick={this.HandleSearch}
+                >
                     Search
                 </button>
+
                 <div className="ShowSymbolSearcher">
                     {Array.isArray(this.state.data) &&
                         this.state.data.map((item, index) => {
@@ -72,19 +76,26 @@ class SymbolSearcher extends Component {
                                 </button>
                             );
                         })}
+
                 </div>
-                {this.state.showGraph && (
-                    <StockGraph
-                        key={this.state.FoundSymbol}
-                        FoundSymbol={this.state.FoundSymbol}
-                    />,
-                    <Chat
-                        key={this.state.FoundSymbol}
-                        FoundSymbol={this.state.FoundSymbol}
-                        data={this.state.data}
-                    />
-                )}
+                {
+                    this.state.showGraph && (
+                        <>
+                            <StockGraph
+                                key={this.state.FoundSymbol}
+                                FoundSymbol={this.state.FoundSymbol}
+                            />
+                            <Chat
+                                key={this.state.FoundSymbol}
+                                FoundSymbol={this.state.FoundSymbol}
+                                data={this.state.data}
+                            />
+                            {console.log("Create components" + this.state.FoundSymbol)}
+                        </>
+                    )
+                }
             </div>
+
         );
     }
 }

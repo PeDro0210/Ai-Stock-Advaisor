@@ -37,6 +37,11 @@
     float: left;
 }
 
+.Chat-LookStocks:hover {
+    background-color: #1b8da1;
+    color: white;
+}
+
 .Chat-Textbox{
     position: fixed;
     top: 90%;
