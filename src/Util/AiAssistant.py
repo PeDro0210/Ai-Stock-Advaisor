@@ -4,19 +4,19 @@ import json
 import load_dotenv as env
 
 
-# Haha, otra cosa con API o lo puedo trasvasar a JS.
+
 env.load_dotenv()
 information_loader = json.load(open('src/Util/Data/initial_information.json','r'))
 ai.api_key = os.getenv("AI_API")
 initial_info = {"role":"system","content":f"{information_loader['AiPrompt']}"}
 chat_log = [initial_info]
 
-def CheckStockData(StockData, StockName):
-    # TODO: Separate the StockData in 4 parts
+# TODO: make a function for having the conversations saved in a json file
 
-    StockData = StockData['Time Series (5min)']
+def CheckStockData(StockData, StockName):
+
+    StockData = StockData['Time Series (5min)'] #Just some specific symbols have this key 
     AllStocks = {"Open":[],"Close":[]}
-    # Just take the Open and close
     for i in StockData:
 
         StockDataOpen = StockData[i]['1. open']
@@ -44,7 +44,7 @@ def ask(message):
 
 def CreateGraph(StockData):
     print(StockData)
-    StockData = StockData['Time Series (5min)']
+    StockData = StockData['Time Series (5min)'] #Just some specific symbols have this key 
     AllStocks = {"Dates":[],"Prices":[],"Open":[]}
 
     for i in StockData:

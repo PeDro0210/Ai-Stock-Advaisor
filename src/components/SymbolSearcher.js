@@ -4,7 +4,7 @@ import StockGraph from './Graph.js';
 import Chat from './Chat.js';
 
 class SymbolSearcher extends Component {
-    // Good, now this is a class and now I understand how the use state works
+    // TODO: Comment in to this shit.
     constructor(props) {
         super(props);
         this.state = {

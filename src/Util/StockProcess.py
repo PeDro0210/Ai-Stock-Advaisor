@@ -3,6 +3,9 @@ import requests as req
 import os
 
 # Hahaha, Have to make the flask server to make this work, so i can get the data from the front end
+# Mf that wasn't funny wtf?
+
+#TODO: comment most of this shit.
 class Stock:
     def __init__(self, StockSymbol):
         self.StockSymbol = StockSymbol
@@ -45,12 +48,13 @@ class Stock:
         
     def StockData(self, StockName):
         try:
+            # TODO: Filter all the symbols that don't have the key "Time Series (5min)" and neither the TIME_SERIES_INTRADAY function
             if StockName == "No results found":
                 return {"Error": "No results found"}
             response = req.get(self.UrlCreator(StockName, "TIME_SERIES_INTRADAY"))
             response.raise_for_status()
             data = response.json()
-            return data
+            return data #TODO: This must return something else if the symbol doesn't have the key "Time Series (5min)" or the TIME_SERIES_INTRADAY function
         
         except req.exceptions.HTTPError as err:
             return {"Error": "No results found"}
