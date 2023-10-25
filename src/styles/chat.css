@@ -8,41 +8,81 @@
     padding: 5px;
     margin: 5px;
     border-radius: 0;
-    border: 2px solid #1b8da1;
+    border: 2px solid #5a002a;
     border-left: none;
     background-color: transparent;
-    color: #1b8da1;
+    color: #58002c;
     float: left;
 }
 
-.Chat-buttonAskAdvisor:hover {
-    background-color: #1b8da1;
-    color: white;
-}
-
-.Chat-LookStocks{
+.Chat-buttonAskAdvisor {
     position: fixed;
     top: 90%;
-    left: 26%;
+    left: 22%;
+    width: 12%;
+    height: 4.7%;
+    font-size: 20px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 8px; 
+    border-style: none; 
+    background-image: linear-gradient(92.88deg, #79284f 9.16%, #91154f 43.89%, #a7024f 64.72%); /* Cambio al fondo degradado */
+    color: #FFFFFF;
+    font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    height: 4rem; 
+    padding: 0 1.6rem; 
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+    cursor: pointer;
+    float: left;
+    transition: all .5s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.Chat-buttonAskAdvisor:hover {
+    box-shadow: rgba(253, 1, 85, 0.5) 0 1px 30px; 
+    transition-duration: .1s;
+}
+
+.Chat-LookStocks {
+    position: fixed;
+    top: 90%;
+    left: 35%;
     width: 15%;
     height: 4.7%;
     font-size: 20px;
     padding: 5px;
     margin: 5px;
-    border-radius: 0;
-    border: 2px solid #1b8da1;
-    border-left: none;
-    background-color: transparent;
-    color: #1b8da1;
+    border-radius: 8px; 
+    border-style: none; 
+    background-image: linear-gradient(92.88deg, #79284f 9.16%, #91154f 43.89%, #a7024f 64.72%); 
+    color: #FFFFFF;
+    font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    height: 4rem; 
+    padding: 0 1.6rem; 
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+    cursor: pointer;
     float: left;
+    transition: all .5s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
 .Chat-LookStocks:hover {
-    background-color: #1b8da1;
-    color: white;
+    box-shadow: rgba(253, 1, 85, 0.5) 0 1px 30px;
+    transition-duration: .1s;
 }
 
-.Chat-Textbox{
+
+.Chat-Textbox {
     position: fixed;
     top: 90%;
     left: 0%;
@@ -52,34 +92,35 @@
     padding: 5px;
     margin: 5px;
     border-radius: 0;
-    border: 2px solid #1b8da1;
-    background-color: transparent;
-    color: #1b8da1;
+    border: 2px solid #ff0062;
+    background-image: linear-gradient(92.88deg, #290f1b 9.16%, #1d0510 43.89%, #240212 64.72%);
+    color: #ffffff;
     float: left;
 }
 
 .Chat-prompts {
     position: fixed;
-    color: #1b8da1;
+    background-image: #ff0073;
+    color: #ff0062;
     left: 0%;
     font-size: 10px;
     font-weight: bold;
-    text-shadow: 2px 2px #ccc;
+    text-shadow: 2px 2px #3d0012;
 }
 
-.Chat-Box{
+.Chat-Box {
     position: fixed;
-    top: 39.9%;
-    left: 0%;
+    top: 37.9%;
+    left: -0.5%;
     width: 20%;
     height: 48.8%;
     font-size: 20px;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 0;
-    border: 2px solid #1b8da1;
-    background-color: white;
-    color: #1b8da1;
+    padding: 10px; /* Aumento del relleno */
+    margin: 10px; /* Aumento de los márgenes */
+    border-radius: 10px; /* Hacer los bordes circulares */
+    border: 2px solid #e9006d;
+    background-color: rgb(27, 10, 18);
+    color: #ffffff;
     float: left;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -87,6 +128,23 @@
     word-wrap: break-word;
     text-shadow: 2px 2px #ccc;
     scroll-behavior: smooth;
+    overflow-y: scroll;
+}
 
+.Chat-Box::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra de desplazamiento */
+}
+
+.Chat-Box::-webkit-scrollbar-thumb {
+    background-color: #79284f; /* Color del "pulggar" de la barra de desplazamiento */
+    border-radius: 6px; /* Borde redondeado del "pulggar" */
+}
+
+.Chat-Box::-webkit-scrollbar-thumb:hover {
+    background-color: #a7024f; /* Color al pasar el cursor sobre el "pulggar" */
+}
+
+.Chat-Box::-webkit-scrollbar-track {
+    background: #373241; /* Color de fondo de la barra de desplazamiento */
 }
 
