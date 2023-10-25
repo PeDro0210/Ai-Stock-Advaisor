@@ -11,16 +11,18 @@ class SymbolSearcher extends Component {
             data: [],
             FoundSymbol: '',
             showGraph: false
+            //Used to store the search symbol, data retrived from the search, selected symbol and whether to display de chart
         };
     }
 
     // Este método realiza una búsqueda utilizando la API y actualiza el estado con los resultados.
     HandleSearch = () => {
-        fetch(`http://127.0.0.1:5000/SymbolSearcher/${this.state.symbol}`)
+
+        fetch(`http://127.0.0.1:5000//SymbolSearcher/<${this.state.symbol}>`) //Fetch function to send a GET request to URL
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                this.setState({ data: data });
+                this.setState({ data: data }); // Once it have an anwer back, it's converted into a JSON format and stored in a data state
             })
             .catch(error => {
                 console.log(error);
