@@ -2,7 +2,11 @@
     position: fixed;
     top: -10%;
     left: 21.5%;
-    /* put it a little bit up */
-    width: 78%;
-    height: 75%;
+    /* TODO:Make the width and height always readaptable (FOr some reasong the graph doesnt follow those rules) */
+    max-width: 78vw;
+    max-height: 75vw;
+    min-width: 78vw;
+    min-height: 75vw;
+    width: auto;
+    height: auto;
 }

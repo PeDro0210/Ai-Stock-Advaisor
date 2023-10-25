@@ -16,7 +16,6 @@ function App() {
     <div className="Stock Adivsor">
       <header className="App-header">
       <button className='MenuButton' onClick={toggleSymbolSearcher}>Menu</button>
-      {/*TODO: Add some cool css transtition and good to go */}
       {showSymbolSearcher && <SymbolSearcher />}
       </header>
     </div>
