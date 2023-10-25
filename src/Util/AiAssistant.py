@@ -32,7 +32,7 @@ def ask(message):
     chat_log.append({"role":"user","content":f"{message}"})
     
     Assistant_response = ai.ChatCompletion.create(
-        model="gpt-3.5-turbo-16k-0613",
+        model="gpt-4-0613",
         messages=chat_log,
         temperature=0.5,
         stop=None

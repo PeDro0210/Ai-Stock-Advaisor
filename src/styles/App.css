@@ -1,5 +1,5 @@
 .App-header {
-  background-color: #373241;
+  background-image: linear-gradient(92.88deg, #31142b 9.16%, #661042 43.89%, #880d46 64.72%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -7,4 +7,5 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: "Lato", sans-serif;
 }
