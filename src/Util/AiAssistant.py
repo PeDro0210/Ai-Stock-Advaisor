@@ -45,7 +45,7 @@ def ask(message):
 def CreateGraph(StockData):
     print(StockData)
     StockData = StockData['Time Series (5min)'] #Just some specific symbols have this key 
-    AllStocks = {"Dates":[],"Prices":[],"Open":[]} #Empty dictionary
+    AllStocks = {"Dates":[],"Prices":[],"Open":[]} 
 
     for i in StockData:
         StockDataOpen = StockData[i]['1. open']
