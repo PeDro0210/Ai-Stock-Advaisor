@@ -1,3 +1,3 @@
 # TODO
 
-Do the graph 
+Check for the stuff that I said
