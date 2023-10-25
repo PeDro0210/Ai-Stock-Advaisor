@@ -31,7 +31,7 @@ def CheckStockData(StockData, StockName):
 def ask(message):
     chat_log.append({"role":"user","content":f"{message}"})
     
-    Assistant_response = ai.ChatCompletion.create(
+    Assistant_response = ai.ChatCompletion.create( #method to generate a response
         model="gpt-4-0613",
         messages=chat_log,
         temperature=0.5,
@@ -45,7 +45,7 @@ def ask(message):
 def CreateGraph(StockData):
     print(StockData)
     StockData = StockData['Time Series (5min)'] #Just some specific symbols have this key 
-    AllStocks = {"Dates":[],"Prices":[],"Open":[]}
+    AllStocks = {"Dates":[],"Prices":[],"Open":[]} #Empty dictionary
 
     for i in StockData:
         StockDataOpen = StockData[i]['1. open']

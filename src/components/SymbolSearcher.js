@@ -12,15 +12,16 @@ class SymbolSearcher extends Component {
             data: [],
             FoundSymbol:'',
             showGraph: false
+            //Used to store the search symbol, data retrived from the search, selected symbol and whether to display de chart
         };
     }
 
     HandleSearch = () => {
-        fetch(`http://127.0.0.1:5000//SymbolSearcher/<${this.state.symbol}>`)
+        fetch(`http://127.0.0.1:5000//SymbolSearcher/<${this.state.symbol}>`) //Fetch function to send a GET request to URL
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                this.setState({ data: data });
+                this.setState({ data: data }); // Once it have an anwer back, it's converted into a JSON format and stored in a data state
             })
             .catch(error => {
                 console.log(error);
@@ -29,10 +30,10 @@ class SymbolSearcher extends Component {
 
     SelectSymbol = (e) => {
         console.log("Symbol Catch: "+e);
-        this.setState({FoundSymbol: e });
+        this.setState({FoundSymbol: e }); //take symbol as an argument and stores it in the "FoundSymbol" state.
     }
 
-    AddGraph = () => {
+    AddGraph = () => { //function used to show the graph related with the selected symbol
         this.setState({showGraph: true});
     }
 
