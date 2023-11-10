@@ -31,7 +31,7 @@ def AskAI(Prompt):
 def CheckStockData(StockName):
     print(f"CheckStockData {StockName}")
     StockName = StockName.replace("<", "").replace(">", "")
-    return Ai.CheckStockData(Stock(StockName).StockData(StockName), StockName)
+    return Ai.CheckStockData(Stock(StockName).StockData(StockName), StockName) 
 
 if __name__ == "__main__":
     app.run(debug=True)
