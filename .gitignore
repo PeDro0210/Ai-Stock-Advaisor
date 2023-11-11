@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+Src/Util/FlaskSever/Include
+Src/Util/FlaskSever/Lib
+Src/Util/FlaskSever/Scripts
 
 # testing
 /coverage
