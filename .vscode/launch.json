@@ -14,7 +14,10 @@
             "name": "Run StockAPI",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/src/Util/StockAPI.py"
+            "python": "${workspaceFolder}/src/Util/FlaskServer/Scripts/python.exe",
+            "program": "${workspaceFolder}/src/Util/FlaskServer/Api/StockAPI.py",
+            "args":["cd src/util/FlaskServer"]
+
         }
     ],
     "compounds": [

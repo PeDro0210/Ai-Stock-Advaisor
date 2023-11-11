@@ -5,11 +5,13 @@ import os
 # Hahaha, Have to make the flask server to make this work, so i can get the data from the front end
 # Mf that wasn't funny wtf?
 
+
+
 #TODO: comment most of this shit.
 class Stock:
     def __init__(self, StockSymbol):
         self.StockSymbol = StockSymbol
-        env.load_dotenv()
+        env.load_dotenv("src/Util/Keys.env")
         self.AlphaKey = os.getenv("AlphaKey")
 
 
