@@ -4,9 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
-Src/Util/FlaskSever/Include/
-Src/Util/FlaskSever/Lib/
-Src/Util/FlaskSever/Scripts/
+
+src/Util/FlaskServer/Include/
+src/Util/FlaskServer/Lib/
+src/Util/FlaskServer/Scripts/
 
 # testing
 /coverage
@@ -25,3 +26,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .env
+src/Util/.env
+.pyc
