@@ -83,6 +83,10 @@ class SymbolSearcher extends Component {
                                 </button>
                             );
                         })}
+                    {/* TODO: Poner el mensaje mas bonito*/}
+                    {this.state.data["Error"] && (
+                        <p>No se encontraron resultados</p>
+                    )}
                 </div>
 
                 {/* Mostrar el gráfico y el chat si showGraph es true */}
