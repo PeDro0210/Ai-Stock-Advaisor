@@ -20,4 +20,4 @@ class JsonFile(InterfaceFile):
             file.truncate()
 
 if __name__ == "__main__":
-    print("This is a module, not a script!")
+    raise Exception("This file is not meant to be executed as a script")

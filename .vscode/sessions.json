@@ -17,6 +17,12 @@
                 "commands": [
                     ""
                 ]
+            },
+            {
+                "name": "venv",
+                "commands": [
+                    "src/Util/FlaskServer/Scripts/Activate.ps1"
+                ]
             }
         ]
     }

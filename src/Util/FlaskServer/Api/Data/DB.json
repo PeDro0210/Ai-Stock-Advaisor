@@ -5,7 +5,7 @@
     },
     "message:b'\\x1e\\x89Z'": {
         "message": "Hola",
-        "AIPrompt": "\u00a1Hola! \u00bfC\u00f3mo puedo ayudarte hoy?"
+        "AIPrompt": "Hola"
     },
     "message:b'\\x1e\\x89Z\\x0c0'": {
         "message": "Hola :DDD",
