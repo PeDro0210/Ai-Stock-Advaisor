@@ -1,21 +1,17 @@
 from Classes.Interfaces.IFileManager import InterfaceFile
-
+import pandas as pd
 
 class CsvFile(InterfaceFile):
     def __init__(self, path):
         self.path = path
 
     def SaveInfo(self, messages, response):
-        coded_message = InterfaceFile.Encoding(message=messages)
-        PersistentData = {f"message:{coded_message}":{ #a fancy way to save the data
+        PersistentData = { #a fancy way to save the data
+            "MessageHash":InterfaceFile.Encoding(message=messages),
             "message":messages,
             "AIPrompt":response
-        }}
+        }
 
-        with open('src/Util/FlaskServer/API/Data/DB.csv','r+') as file:
-            data = file.readlines()
-            data.append(PersistentData)
-            file.seek(0)
-            # TODO: Formatear a csv :D
-            file.writelines(data)
-            file.truncate()
+        data = pd.read_csv(self.path)
+        data = data._append(PersistentData, ignore_index=True)
+        data.to_csv(self.path, index=False)
