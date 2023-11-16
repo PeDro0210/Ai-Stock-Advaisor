@@ -52,6 +52,9 @@ class SymbolSearcher extends Component {
                         if (e.key === 'Enter') {
                             this.HandleSearch();
                             document.getElementById("symbol-input").value = "";
+                            if (this.state.showGraph) {
+                                window.location.reload();
+                            }
                         }
                     }}
                 />
