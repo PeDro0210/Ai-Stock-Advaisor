@@ -27,14 +27,24 @@ CsvManager = CsvFile('src/Util/FlaskServer/API/Data/DB.csv')
 
 def CheckStockData(StockData, StockName): #takes a while to check all the data
 
-    #TODO: optimizenlo HAHA
+    def DeleateOldStockData():
+        for prompt in chat_log:
+            if (prompt['content'][0:9] == "StockData:"):
+                chat_log.remove(prompt)
+
+    #Removes any other StockCalls for the token quantity
+    DeleateOldStockData()
+
     StockData = StockData['Time Series (5min)'] #Just some specific symbols have this key 
     AllStocks = {"Open":[],"Close":[]}
+    
     for i in StockData:
-
         StockDataOpen = StockData[i]['1. open']
         StockDataClose = StockData[i]['4. close']
-        chat_log.append({"role":"system","content":f"Symbol: {StockName} Open: {StockDataOpen} Close: {StockDataClose}"})
+
+        chat_log.append({"role":"system","content":
+                         f"StockData: Symbol: {StockName} Open: {StockDataOpen} Close: {StockDataClose}"})
+        
         AllStocks['Open'].append(StockDataOpen)
         AllStocks['Close'].append(StockDataClose)
 
@@ -48,12 +58,12 @@ def ask(message):
         model="gpt-4-0613",
         messages=chat_log,
     )
+
+    # Load for persistence
     JsonManager.SaveInfo(message,Assistant_response.choices[0].message.content)
     CsvManager.SaveInfo(message,Assistant_response.choices[0].message.content)
     
     chat_log.append({"role":"assistant","content":Assistant_response.choices[0].message.content})
-
-    # TODO: Add objects calling stuf bla bla
 
     return {"message":Assistant_response.choices[0].message.content}
 
