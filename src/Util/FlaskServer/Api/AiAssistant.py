@@ -43,7 +43,7 @@ def CheckStockData(StockData, StockName): #takes a while to check all the data
         StockDataClose = StockData[i]['4. close']
 
         chat_log.append({"role":"system","content":
-                         f"StockData: Symbol: {StockName} Open: {StockDataOpen} Close: {StockDataClose}"})
+                        f"StockData: Symbol: {StockName} Open: {StockDataOpen} Close: {StockDataClose}"})
         
         AllStocks['Open'].append(StockDataOpen)
         AllStocks['Close'].append(StockDataClose)
