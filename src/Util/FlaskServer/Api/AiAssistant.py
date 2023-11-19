@@ -59,10 +59,15 @@ def ask(message):
         messages=chat_log,
     )
 
-    # Load for persistence
+    # TODO: Implement xml manager and:
+    # Json for user and assistant
+    # Csv for user and assistant
+    # Xml for user and assistant
+    # O si no todo para todos y ya
     JsonManager.SaveInfo(message,Assistant_response.choices[0].message.content)
     CsvManager.SaveInfo(message,Assistant_response.choices[0].message.content)
-    
+    # XmlManager.SaveInfo(message,Assistant_response.choices[0].message.content)
+
     chat_log.append({"role":"assistant","content":Assistant_response.choices[0].message.content})
 
     return {"message":Assistant_response.choices[0].message.content}
