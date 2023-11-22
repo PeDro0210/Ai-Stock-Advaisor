@@ -11,7 +11,6 @@ class Chat extends Component {
             ChatgptPrompt: []
         }
     }
-
     OpenAiPrompt = () => {
         fetch(`http://127.0.0.1:5000//AskAI/<${this.state.Prompt}>`)
             .then(response => response.json())

@@ -1,0 +1,9 @@
+openai
+load_env
+requests
+json
+flask
+flask_cors
+xml
+pandas
+os

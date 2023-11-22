@@ -11,18 +11,16 @@ class SymbolSearcher extends Component {
             data: [],
             FoundSymbol: '',
             showGraph: false
-            //Used to store the search symbol, data retrived from the search, selected symbol and whether to display de chart
         };
     }
 
     // Este método realiza una búsqueda utilizando la API y actualiza el estado con los resultados.
     HandleSearch = () => {
-
-        fetch(`http://127.0.0.1:5000//SymbolSearcher/<${this.state.symbol}>`) //Fetch function to send a GET request to URL
+        fetch(`http://127.0.0.1:5000//SymbolSearcher/<${this.state.symbol}>`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                this.setState({ data: data }); // Once it have an anwer back, it's converted into a JSON format and stored in a data state
+                this.setState({ data: data });
             })
             .catch(error => {
                 console.log(error);
@@ -48,12 +46,15 @@ class SymbolSearcher extends Component {
                     id="symbol-input"
                     type="text"
                     placeholder="Write Symbol"
-                    className="SymbolSearcher-textbox"
+                    className="SymbolSeacher-textbox"
                     onChange={(e) => this.setState({ symbol: e.target.value })}
                     onKeyDown={(e) => {
                         if (e.key === 'Enter') {
                             this.HandleSearch();
                             document.getElementById("symbol-input").value = "";
+                            if (this.state.showGraph) {
+                                window.location.reload();
+                            }
                         }
                     }}
                 />
@@ -85,6 +86,10 @@ class SymbolSearcher extends Component {
                                 </button>
                             );
                         })}
+                    {/* TODO: Poner el mensaje mas bonito*/}
+                    {this.state.data["Error"] && (
+                        <p>No se encontraron resultados</p>
+                    )}
                 </div>
 
                 {/* Mostrar el gráfico y el chat si showGraph es true */}

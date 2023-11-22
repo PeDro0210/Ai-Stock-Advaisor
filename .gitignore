@@ -5,11 +5,17 @@
 /.pnp
 .pnp.js
 
+
+src/Util/FlaskServer/Include/
+src/Util/FlaskServer/Lib/
+src/Util/FlaskServer/Scripts/
+
 # testing
 /coverage
 
 # production
 /build
+/__pycache__
 
 # misc
 .DS_Store
@@ -21,4 +27,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.env
+Keys.env
+src/Util/.env
+.pyc
+src/Util/FlaskServer/Api/__pycache__
+
+/.vscode
+.vscode/sessions.json
