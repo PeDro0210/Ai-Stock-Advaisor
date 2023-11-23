@@ -11,13 +11,23 @@ class XmlFile(InterfaceFile):
 
     def SaveInfo(self, messages, response):
         coded_message = InterfaceFile.Encoding(message=messages)
-        PersistentData = {f"message:{coded_message}": {
-            "message": messages,
-            "AIPrompt": response
-        }}
+        persistent_data = {"message": coded_message, "AIPrompt": response}
 
-        File = pd.read_xml(self.path)
-        File = File._append(PersistentData, ignore_index=True)
-        File.to_xml(self.path)
+        # Si el archivo no existe, crear un nuevo archivo XML
+        if not os.path.exists(self.path):
+            root = ET.Element("root")
+            tree = ET.ElementTree(root)
+            tree.write(self.path)
 
-    # TODO: Implementar el guardado de datos en XML
+        # Leer el archivo XML existente
+        tree = ET.parse(self.path)
+        root = tree.getroot()
+
+        # Crear un nuevo elemento 'entry' con la información
+        entry = ET.SubElement(root, "entry")
+        for key, value in persistent_data.items():
+            child = ET.SubElement(entry, key)
+            child.text = str(value)
+
+        # Guardar el árbol XML actualizado de vuelta al archivo
+        tree.write(self.path)
