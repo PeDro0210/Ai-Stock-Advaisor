@@ -4,12 +4,6 @@ import load_dotenv as env
 import openai as ai
 
 
-from Classes.JsonManager import JsonFile
-from Classes.CsvManager import CsvFile
-# from Interfaces.XmlManager import InterfaceFile
-
-
-
 #Global variables
 
 env.load_dotenv("src/Util/Keys.env")
@@ -17,12 +11,6 @@ information_loader = json.load(open('src/Util/FlaskServer/Api/Data/Initial_infor
 ai.api_key = os.getenv("AI_API")
 initial_info = {"role":"system","content":f"{information_loader['AiPrompt']}"}
 chat_log = []
-
-#Global Objects
-
-JsonManager = JsonFile('src/Util/FlaskServer/API/Data/DB.json')
-CsvManager = CsvFile('src/Util/FlaskServer/API/Data/DB.csv')
-
 
 
 def CheckStockData(StockData, StockName): #takes a while to check all the data
@@ -63,9 +51,7 @@ def ask(message):
     # Json for user and assistant
     # Csv for user and assistant
     # Xml for user and assistant
-    # O si no todo para todos y ya
-    JsonManager.SaveInfo(message,Assistant_response.choices[0].message.content)
-    CsvManager.SaveInfo(message,Assistant_response.choices[0].message.content)
+    # O si no todo para todos y
     # XmlManager.SaveInfo(message,Assistant_response.choices[0].message.content)
 
     chat_log.append({"role":"assistant","content":Assistant_response.choices[0].message.content})

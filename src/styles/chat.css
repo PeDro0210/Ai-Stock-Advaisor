@@ -13,6 +13,7 @@
     background-color: transparent;
     color: #58002c;
     float: left;
+    
 }
 
 .Chat-buttonAskAdvisor {
@@ -84,9 +85,9 @@
 
 .Chat-Textbox {
     position: fixed;
-    top: 90%;
+    top: 91%;
     left: 0%;
-    width: 19.5%;
+    width: 20.1%;
     height: 3.2%;
     font-size: 20px;
     padding: 5px;
@@ -96,6 +97,7 @@
     background-image: linear-gradient(92.88deg, #290f1b 9.16%, #1d0510 43.89%, #240212 64.72%);
     color: #ffffff;
     float: left;
+    outline: none;
 }
 
 .Chat-prompts {
@@ -110,14 +112,13 @@
 
 .Chat-Box {
     position: fixed;
-    top: 37.9%;
-    left: -0.5%;
-    width: 20%;
-    height: 48.8%;
+    top: 43.1%;
+    left: -0.25%;
+    width: 19.55%;
+    height: 44.8%;
     font-size: 20px;
     padding: 10px; /* Aumento del relleno */
     margin: 10px; /* Aumento de los márgenes */
-    border-radius: 10px; /* Hacer los bordes circulares */
     border: 2px solid #e9006d;
     background-color: rgb(27, 10, 18);
     color: #ffffff;
@@ -129,6 +130,7 @@
     text-shadow: 2px 2px #ccc;
     scroll-behavior: smooth;
     overflow-y: scroll;
+    outline: none;
 }
 
 .Chat-Box::-webkit-scrollbar {
