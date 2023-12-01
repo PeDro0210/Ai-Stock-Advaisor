@@ -34,3 +34,4 @@ src/Util/FlaskServer/Api/__pycache__
 
 /.vscode
 .vscode/sessions.json
+src/Util/FlaskServer/pyvenv.cfg

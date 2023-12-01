@@ -12,15 +12,16 @@
     background-image: linear-gradient(92.88deg, #160b11 9.16%, #200713 43.89%, #240714 64.72%);
     color: #ffffff;
     float: left;
+    outline: none;
     
 }
 
 .symbolSearcher-button {
     position: fixed;
     top: 7%;
-    left: 16.5%;
+    left: 15.7%;
     width: 10%;
-    height: 4.7%;
+    height: 4.4%;
     font-size: 20px;
     padding: 5px;
     margin: 5px;
@@ -38,6 +39,7 @@
     color: rgba(255, 255, 255, 0); 
     
 }
+
 .symbolSearcher-button:hover {
     background-color: rgba(0, 0, 0, 0.589);
     color: rgb(161, 27, 78);
@@ -47,14 +49,12 @@
     position: fixed;
     top: 12%;
     left: 5px;
-    width: 10.75%;
+    width: 15.75%;
     display: flex; 
     background-color: #a11b1b;
     flex-direction: column;
     overflow: auto; /* this is for the scroll bar */
     max-height: 30vh;
-    border-top: 2px solid  #a11b1b;
-    border-bottom: 2px solid  #a11b1b;
 }
 
 .ShowSymbolSearcher::-webkit-scrollbar {
